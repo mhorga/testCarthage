@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KeychainAccess
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        let keychain = Keychain(service: "com.example.github-token")
+        keychain["kishikawakatsumi"] = "01234567-89ab-cdef-0123-456789abcdef"
+        println(keychain)
+        
         return true
     }
 
